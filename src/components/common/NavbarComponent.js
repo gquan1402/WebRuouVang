@@ -9,7 +9,6 @@ class NavbarComponent extends Component {
     email: "",
     password: ""
   };
-
   render() {
     return (
       <div className="container">

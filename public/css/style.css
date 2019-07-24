@@ -852,6 +852,12 @@
 			border: 1px solid #ddd;
 			padding: 8px;
 		}
+		.sb_item .menu1 li{
+			cursor: pointer;
+		}
+		.sb_item .menu1 li:hover{
+			color: #fabb4a;
+		}
 		/*chi tiế sp*/
 		.anhchitiet img{
 		height: 200px; 

@@ -17,6 +17,11 @@ class ProductItem extends Component {
     goToProduct(e) {
         this.item = e;
     }
+    goToProductId(id, name) {
+        this.props.store.id = id;
+        this.props.store.idname = name;
+        this.props.history.push('/productId');
+    }
     render() {
         return (
             <section id="productDetail" class="content">
@@ -33,9 +38,9 @@ class ProductItem extends Component {
                         <div class="col-sm-12">
                             <div class="title_page">
                                 <ul class="list-inline">
-                                    <li><a href="index.html">Trang chủ</a></li>
+                                    <li>Trang chủ</li>
                                     <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-                                    <li><a href="product.html">Sản phẩm</a></li>
+                                    <li>Sản phẩm</li>
                                     <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
                                     <li>
                                         {this.item.product_name} </li>
@@ -59,12 +64,12 @@ class ProductItem extends Component {
                                     <div class="demo">
                                         <div class="zoom-section">
                                             <div class="zoom-small-image">
-                                                <a href='uploads/1529449825TYb8VU.jpg' class='cloud-zoom' id='zoom1'
+                                                <a href='#' class='cloud-zoom' id='zoom1'
                                                     rel="adjustX:10, adjustY:-4"><img
                                                         src={this.item.product_image} alt=''
                                                         title="Optional title display" style={{ height: "250px", width: "65%" }} /></a>
                                             </div>
-                                            <div class="zoom-desc">
+                                            {/* <div class="zoom-desc">
 
                                                 <p>
                                                     <a href='images/48564-chai-ruou-vang-phap-le-carmes.jpg'
@@ -74,7 +79,7 @@ class ProductItem extends Component {
                                                             src={this.item.product_image} alt="" /></a>
 
                                                 </p>
-                                            </div>
+                                            </div> */}
                                         </div>
 
                                     </div>
@@ -102,7 +107,7 @@ class ProductItem extends Component {
                                             <p><strong>Dung Tích:</strong> {this.item.product_capacity}</p>
                                             <p><strong>Nồng Độ:</strong> {this.item.product_concentration} </p>
                                             <p><strong>Nhiệt Độ Sử Dụng:</strong> {this.item.product_temperature} </p>
-                                            <button class="btn btn-button" onClick={() => console.log(this.Products)}>MUA NGAY</button>
+                                            <div class="btn btn-button" onClick={() => this.props.store.onAddToCart(this.item, 1)}>MUA NGAY</div>
                                         </form>
                                     </div>
                                 </div>
@@ -157,7 +162,7 @@ class ProductItem extends Component {
                                             <ul className="list-unstyled icon_lk">
                                                 <li><i className="fa fa-eye" aria-hidden="true"></i>
                                                 </li>
-                                                <li onClick={() => console.log(this.Products)}><i
+                                                <li onClick={() => this.props.store.onAddToCart(e, 1)}><i
                                                     className="fa fa-shopping-cart " aria-hidden="true"></i></li>
                                             </ul>
                                         </div>
@@ -170,19 +175,19 @@ class ProductItem extends Component {
                                 <div class="sb_item">
                                     <h4>Danh mục</h4>
                                     <ul class="list-unstyled menu1">
-                                        <li><a href="danh-muc.html?id=1">Rượu Vang Pháp</a></li>
+                                        <li onClick={() => { this.goToProductId("5d2295abe7179a4e432eceed", "Rượu Vang Pháp") }}>Rượu Vang Pháp</li>
                                     </ul>
                                     <ul class="list-unstyled menu1">
-                                        <li><a href="danh-muc.html?id=2">Rượu Vang Ý</a></li>
+                                        <li onClick={() => { this.goToProductId("5d2297f7e7179a4e432ecf7e", "Rượu Vang Ý") }}>Rượu Vang Ý</li>
                                     </ul>
                                     <ul class="list-unstyled menu1">
-                                        <li><a href="danh-muc.html?id=3">Rượu Vang Chile</a></li>
+                                        <li onClick={() => { this.goToProductId("5d229809e7179a4e432ecf80", "Rượu Vang Chile") }}>Rượu Vang Chile</li>
                                     </ul>
                                     <ul class="list-unstyled menu1">
-                                        <li><a href="danh-muc.html?id=4">Rượu Vang Tây Ban Nha</a></li>
+                                        <li onClick={() => { this.goToProductId("5d22981be7179a4e432ecf81", "Rượu Vang Tây Ban Nha") }}>Rượu Vang Tây Ban Nha</li>
                                     </ul>
                                     <ul class="list-unstyled menu1">
-                                        <li><a href="danh-muc.html?id=5">Rượu Vang Mỹ</a></li>
+                                        <li onClick={() => { this.goToProductId("5d229827e7179a4e432ecf83", "Rượu Vang Mỹ") }}>Rượu Vang Mỹ</li>
                                     </ul>
                                 </div>
                             </div>

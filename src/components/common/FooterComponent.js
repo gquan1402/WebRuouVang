@@ -1,15 +1,20 @@
 import React, { Component } from "react";
 import "./common.scss";
-import { observer } from "mobx-react";
+import { observer, inject } from "mobx-react";
 import { observable } from "mobx";
 import { Link } from "react-router-dom";
+@inject('store')
 @observer
 class FooterComponent extends Component {
     @observable data = {
         email: "",
         password: ""
     };
-
+    goToProductId(id, name) {
+        this.props.store.id = id;
+        this.props.store.idname = name;
+        this.props.history.push('/productId');
+    }
     render() {
         return (<footer>
             <div className="footer_top" >
@@ -34,32 +39,20 @@ class FooterComponent extends Component {
                         </div>
                         <div className="col-sm-3">
                             <h3>Sản phẩm</h3>
-                            <ul className="list-unstyled">
-                                <li><a href="#">Mỳ cay</a></li>
-                                <li><a href="#">Mỳ ý hải sản</a></li>
-                                <li><a href="#">Mỳ ý sốt gà</a></li>
-                                <li><a href="#">Cơm chiên hải sản</a></li>
+                            <ul class="list-unstyled menu1">
+                                <li>Rượu Vang Pháp</li>
                             </ul>
-                            <ul className="list-unstyled">
-                                <li><a href="#">Món khai vi</a></li>
+                            <ul class="list-unstyled menu1">
+                                <li>Rượu Vang Ý</li>
                             </ul>
-                            <ul className="list-unstyled">
-                                <li><a href="#">Thức ăn nhanh</a></li>
+                            <ul class="list-unstyled menu1">
+                                <li>Rượu Vang Chile</li>
                             </ul>
-                            <ul className="list-unstyled">
-                                <li><a href="#">Mỳ</a></li>
+                            <ul class="list-unstyled menu1">
+                                <li>Rượu Vang Tây Ban Nha</li>
                             </ul>
-                            <ul className="list-unstyled">
-                                <li><a href="#">Đồ uống</a></li>
-                            </ul>
-                            <ul className="list-unstyled">
-                                <li><a href="#">BBQ</a></li>
-                            </ul>
-                            <ul className="list-unstyled">
-                                <li><a href="#">Hải sản</a></li>
-                            </ul>
-                            <ul className="list-unstyled">
-                                <li><a href="#">Khác</a></li>
+                            <ul class="list-unstyled menu1">
+                                <li>Rượu Vang Mỹ</li>
                             </ul>
                         </div>
                         <div className="col-sm-3">

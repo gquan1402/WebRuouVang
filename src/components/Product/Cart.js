@@ -1,14 +1,28 @@
 import React, { Component } from "react";
-import { observer } from "mobx-react";
+import { observer, inject } from "mobx-react";
 import { observable } from "mobx";
 import { Link } from "react-router-dom";
+@inject('store')
 @observer
 class Cart extends Component {
   @observable data = {
     email: "",
     password: ""
   };
-
+  showTotal = (cart) => {
+    var total = 0;
+    if (cart.length > 0) {
+        for(var i = 0;i< cart.length;i++){
+            total += cart[i].item.product_cost * cart[i].quantity;
+        }
+    }
+    return total;
+}
+goToProductId(id, name) {
+  this.props.store.id = id;
+  this.props.store.idname = name;
+  this.props.history.push('/productId');
+}
   render() {
     return (
       <section id="cart">
@@ -39,85 +53,54 @@ class Cart extends Component {
                       <th style={{ width: "15%" }} className="text-center">Thành tiền</th>
                       <th style={{ width: "5%" }} className="text-center">Xóa</th>
                     </tr>
-                    <form method="post" action="" id="myForm"></form>
-                    <tr>
-                      <td>1</td>
-                      <td><img style={{ height: "50px", width: "50px", marginLeft: "auto", marginRight: "auto" }}
-                        src="../../../uploads/1528693951gg_1024x1024.png" className="img-responsive text-center"
-                        alt="" /></td>
-                      <td>
-                        Squid Stuffed Meat </td>
-                      <td className="text-danger">95,000<sup><u>đ</u></sup></td>
-                      <td>
-                        <input style={{ width: "60px" }} type="number" id="quantitys" name="quantitys[]"
-                          value="2" min="1" />
+                    {this.props.store.cart.map((e, index) => {
+                      return (<tr key={index}>
+                        <td>{index + 1}</td>
+                        <td><img style={{ height: "50px", width: "50px", marginLeft: "auto", marginRight: "auto" }}
+                          src={e.item.product_image} className="img-responsive text-center"
+                          alt="" /></td>
+                        <td>
+                          {e.item.product_name} </td>
+                        <td className="text-danger">{e.item.product_cost}<sup><u>USD</u></sup></td>
+                        <td className="center-o-nsmall-only">
+                                        <span className="qty">{e.quantity}</span>
+                                        <div className="btn-group radio-group" data-toggle="buttons">
+                                            <label className="btn btn-sm btn-primary
+                                                btn-rounded waves-effect waves-light"
+                                                onClick={()=>this.props.store.onChangeQuantity(e.item,-1)}
+                                                >
+                                                <a>—</a>
+                                            </label>
+                                            <label className="btn btn-sm btn-primary
+                                                btn-rounded waves-effect waves-light"
+                                                onClick={()=>this.props.store.onChangeQuantity(e.item,1)}
+                                                >
+                                                <a>+</a>
+                                            </label>
+                                        </div>
+                                    </td>
 
-                        <input type="hidden" name="id[]" value="99" />
-
-                      </td>
-                      <td className="text-danger">190,000<sup><u>đ</u></sup></td>
-                      <td><a href="handle_cart.html?id=99&action=delete"
-                        onclick="return confirm('bạn có chắc chắn xóa không? ')"><i
-                          className="fa fa-trash-o"></i></a></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td><img style={{ height: "50px", width: "50px", marginLeft: "auto", marginRight: "auto" }}
-                        src="../../../uploads/1528693238img3_-_copy_large.png" className="img-responsive text-center"
-                        alt="" /></td>
-                      <td>
-                        Strawberry Pomegranate Sangria </td>
-                      <td className="text-danger">150,000<sup><u>đ</u></sup></td>
-                      <td>
-                        <input style={{ width: "60px" }} type="number" id="quantitys" name="quantitys[]"
-                          value="1" min="1" />
-
-                        <input type="hidden" name="id[]" value="95" />
-
-                      </td>
-                      <td className="text-danger">150,000<sup><u>đ</u></sup></td>
-                      <td><a href="handle_cart.html?id=95&action=delete"
-                        onclick="return confirm('bạn có chắc chắn xóa không? ')"><i
-                          className="fa fa-trash-o"></i></a></td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td><img style={{ height: "50px", width: "50px", marginLeft: "auto", marginRight: "auto" }}
-                        src="../../../uploads/1530241376fg_large.png" className="img-responsive text-center" alt="" />
-                      </td>
-                      <td>
-                        Ratima Pikamef </td>
-                      <td className="text-danger">130,000<sup><u>đ</u></sup></td>
-                      <td>
-                        <input style={{ width: "60px" }} type="number" id="quantitys" name="quantitys[]"
-                          value="1" min="1" />
-
-                        <input type="hidden" name="id[]" value="116" />
-
-                      </td>
-                      <td className="text-danger">130,000<sup><u>đ</u></sup></td>
-                      <td><a href="handle_cart.html?id=116&action=delete"
-                        onclick="return confirm('bạn có chắc chắn xóa không? ')"><i
-                          className="fa fa-trash-o"></i></a></td>
-                    </tr>
+                        <td className="text-danger">{e.item.product_cost * e.quantity}<sup><u>USD</u></sup></td>
+                        <td>
+                           <button type="button" className="btn btn-sm btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top"
+                            title="" data-original-title="Remove item" onClick={()=>this.props.store.onDeleteCartItem(e.item)}>
+                            X
+                          </button>
+                        </td>
+                      </tr>)
+                    })}
 
 
 
                     <tr className="end">
                       <td colspan="4">
-                        <a href="product.html" className="btn btn-button">+ Mua thêm</a>
-
-                        <button className="btn btn-button add-quantity" name="all">Cập nhật</button>
-
-                        <a href="handle_cart.html?&action=deleteall" className="btn btn-button"
-                          onclick="return confirm('bạn có chắc chắn hủy đơn hàng này không? ')">Hủy đơn
-                        hàng</a>
+                       
                       </td>
                       <td className="text-right">
                         Tổng cộng:
                     </td>
                       <td colspan="2" className="text-danger text-left">
-                        <strong>470,000 <sup><u>đ</u></sup></strong>
+                        <strong>{this.showTotal(this.props.store.cart)}<u> USD</u></strong>
                       </td>
                     </tr>
                   </table>
@@ -158,7 +141,7 @@ class Cart extends Component {
                     </div>
                   </div>
                   <div className="text-center">
-                    <button type="submit" className="btn btn-button"><a href="bill.html">Đặt hàng</a></button>
+                    <div type="submit" className="btn btn-button" onClick={()=>{this.props.store.onBill()}}>Đặt hàng</div>
                   </div>
                 </form>
               </div>
@@ -169,26 +152,20 @@ class Cart extends Component {
               <div className="sidebar">
                 <div className="sb_item">
                   <h4>Danh mục</h4>
-                  <ul className="list-unstyled menu1">
-                    <li><a href="danh-muc.html?id=1">Món khai vi</a></li>
+                  <ul class="list-unstyled menu1">
+                    <li onClick={() => { this.goToProductId("5d2295abe7179a4e432eceed", "Rượu Vang Pháp") }}>Rượu Vang Pháp</li>
                   </ul>
-                  <ul className="list-unstyled menu1">
-                    <li><a href="danh-muc.html?id=2">Thức ăn nhanh</a></li>
+                  <ul class="list-unstyled menu1">
+                    <li onClick={() => { this.goToProductId("5d2297f7e7179a4e432ecf7e", "Rượu Vang Ý") }}>Rượu Vang Ý</li>
                   </ul>
-                  <ul className="list-unstyled menu1">
-                    <li><a href="danh-muc.html?id=3">Mỳ</a></li>
+                  <ul class="list-unstyled menu1">
+                    <li onClick={() => { this.goToProductId("5d229809e7179a4e432ecf80", "Rượu Vang Chile") }}>Rượu Vang Chile</li>
                   </ul>
-                  <ul className="list-unstyled menu1">
-                    <li><a href="danh-muc.html?id=4">Đồ uống</a></li>
+                  <ul class="list-unstyled menu1">
+                    <li onClick={() => { this.goToProductId("5d22981be7179a4e432ecf81", "Rượu Vang Tây Ban Nha") }}>Rượu Vang Tây Ban Nha</li>
                   </ul>
-                  <ul className="list-unstyled menu1">
-                    <li><a href="danh-muc.html?id=5">BBQ</a></li>
-                  </ul>
-                  <ul className="list-unstyled menu1">
-                    <li><a href="danh-muc.html?id=6">Hải sản</a></li>
-                  </ul>
-                  <ul className="list-unstyled menu1">
-                    <li><a href="danh-muc.html?id=7">Khác</a></li>
+                  <ul class="list-unstyled menu1">
+                  <li onClick={() => { this.goToProductId("5d229827e7179a4e432ecf83", "Rượu Vang Mỹ") }}>Rượu Vang Mỹ</li>
                   </ul>
                 </div>
               </div>
@@ -196,7 +173,7 @@ class Cart extends Component {
 
           </div>
         </div>
-      </section>
+      </section >
     );
   }
 }

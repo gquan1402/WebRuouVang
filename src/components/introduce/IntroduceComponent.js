@@ -39,30 +39,40 @@ class IntroduceComponent extends Component {
                                 <h2>Giới thiệu chung</h2>
                             </div>
                             <div class="intro_content">
-                                <p>Với tốc độ phát triển công nghệ thông trong thời đại công nghiệp hóa, việc sử dụng mạng Internet đã trở nên phổ biến. Tìm kiếm thông tin và giao dịch thương mại trên internet chính là xu hướng hiện nay.</p>
-                                <p>Với nhiệm vụ là đem đến cho những các bạn những sản phẩm tốt nhất, những món ăn đa dạng, tạo cảm giác hài lòng đối với khách hàng.</p>
-                                <p>Vì vậy hôm nay chúng tôi xin giới thiệu với các bạn website bán đồ ăn trực tuyến. Hiện nay với khả năng phát triển đáng kinh ngạc của Internet cho nên nhiều website bán hàng trực tuyến từ quần áo,đồ gia dụng,món đồ ăn,... cũng không ngừng sinh ra.Nhưng vì sao bạn nhất định phải chọn website của chúng tôi ?</p>
-                                <h3>Sứ mệnh</h3>
-                                <p>“Ẩm thực và hơn thế nữa!”</p>
-                                <p>“Ẩm thực và hơn thế nữa!” là câu slogan thể hiện sứ mệnh, phương châm, hướng đi mà Website bán đồ ăn trực tuyến đã lựa chọn. Sứ mệnh của chúng tôi là mang đến cho khách hàng những trải nghiệm tuyệt vời và đúng nghĩa nhất về ẩm thực. Ở đó, ẩm thực không chỉ đơn giản là ngon miệng, mà phải đảm bảo an toàn vệ sinh và dinh dưỡng.</p>
-                                <p>Sức khỏe của khách hàng luôn là một trong các vấn đề hàng đầu được chúng tôi quan tâm và chú trọng. Những món ăn của Website bán đồ ăn trực tuyến được đầu tư nghiên cứu và chế biến theo hướng vận dụng các bài thuốc có giúp tăng cường sức khỏe, ngăn ngừa ung thư, làm chậm tiến trình lão hóa, hỗ trợ điều trị các bệnh về xương khớp... Món ăn của Nhà Hàng hứa hẹn sẽ đem đến sự ngon miệng và hài lòng nhất cho khách hàng</p>
-                                <h3>Giá trị cót lõi</h3>
-                                <p>An toàn: Trong ngành kinh doanh ẩm thực, an toàn về sức khỏe được xem là yếu tố quan trọng nhất. Tuy nhiên, hiện nay rất nhiều cơ sở kinh doanh vì lợi nhuận mà lại bỏ quên yếu tố này. Với tâm niệm mong muốn bảo vệ sức khỏe của khách hàng, Web chúng tôi luôn luôn đề cao vấn đề an toàn thực phẩm ở mọi công đoạn từ lựa chọn và bảo quản nguyên liệu, quá trình chế biến món ăn đến khi thành phẩm.</p>
+                                <p>“Bạn muốn mua rượu vang để phục vụ cho những bữa tiệc cùng bạn bè và gia đình, để biếu tặng, kinh doanh.
+                                     ruouvangHQT sinh ra với sứ mệnh mang đến cho toàn thể quý khách hàng những nét đẹp về văn hóa rượu vang,
+                                     những kiến thức bổ ích và lợi ích của rượu vang, với những sản phẩm rượu vang nhập khẩu chính hãng”</p>
+                                <p>Rượu vang là một trong những đồ uống được tiêu thụ nhiều hàng đầu Thế giới và có tuổi đời lên đến hàng nghìn năm.
+                                    Ngày nay trong những bữa tiệc sang trọng đã dần trở nên không thể thiếu được sự kết hợp với rượu vang.
+                                    Đồ uống duy nhất có thể kết hợp được với đồ ăn khiến những món ăn trở nên đậm đà và tinh tế hơn.</p>
+                                <p>Shop ruouvangHQT với nhiều năm kinh nghiệm trong lĩnh vực nhập khẩu và cung cấp các sản phẩm rượu vang chất lượng tốt nhất ở Việt Nam hiện nay.
+                                    Tất cả các sản phẩm của chúng tôi đều từ những hầm rượu nổi tiếng trên thế giới
+                                    và được lựa chọn kỹ lưỡng bởi các chuyên gia nếm thử hàng đầu Việt Nam.</p>
+
+                                <p>Đến với ruouvangHQT, quý khách sẽ được khám phá sự phong phú về các dòng rượu vang đến từ các quốc
+                                    gia nổi tiếng trên thế giới. Bên cạnh đó, quý khách sẽ được nhân viên tư vấn tận tình và đặc biệt
+                                    quý khách có thể nếm thử miễn phí trước khi quyết định chọn mua. ruouvangHQT cam kết cung cấp những
+                                    chai rượu vang được nhập khẩu chính hãng, mỗi chai rượu luôn có suất sứ rõ ràng, đảm bảo chất lượng
+                                    và luôn được bảo quản tốt nhất trong kho lạnh theo đúng tiêu chuẩn. Tại ruouvangHQT khách hàng sẽ được
+                                     tận hưởng những dịch vụ mà khó có đơn vị nào cung cấp rượu vang nào đáp ứng được:</p>
+                                <p>– Uống thử rượu vang miễn phí: Mục tiêu tối thượng của chúng tôi là giúp bạn chọn loại rượu vang chuẩn gu của mình!</p>
+                                <p>– Yên tâm về chất lượng của rượu: Toàn bộ rượu vang của ruouvangHQT được nhập khẩu trực
+                                    tiếp từ nhà sản xuất và có đầy đủ giấy tờ hải quan để đảm bảo về chất lượng của sản phẩm.</p>
+
+                                <p>– Đổi, trả sản phẩm nếu không vừa lòng: Duy nhất chỉ có tại ruouvangHQT.
+                                     Chúng tôi luôn mong muốn khách hàng của mình được hài lòng nhất về sản phẩm mình đã mua</p>
                                 <div class="hover8">
                                     <div class="hover_img">
-                                        <img src="images/introduce.jpeg" class="img-responsive" id="img_center" />
+                                        <img src="images/foody-mobile-asdasd-jpg-595-636310426618632554.jpg" class="img-responsive" id="img_center" />
                                     </div>
                                 </div>
-                                <p>Chuyên nghiệp: Sự chuyên nghiệp là một trong những giá trị Nhà Hàng Hoàng Quyên tự tin và tự hào nhất. Hoàng Quyên sở hữu một đội ngũ nhân viên giàu kinh nghiệm và đã qua đào tạo chuyên sâu, bao gồm các chuyên gia tư vấn về ẩm thực, đầu bếp, nhân viên phục vụ… Tập thể nhân viên Hoàng Quyên luôn sẵn sàng cống hiến hết mình để có thể cung cấp những dịch vụ tốt nhất, chuyên nghiệp nhất đến khách hàng.</p>
-                                <h3>Hoạt động</h3>
-                                <p>Nhà hàng cung cấp đa dạng và phong phú các món ăn đặc trưng trong văn hóa ẩm thực Việt Nam cũng như thế giới. Thế mạnh của Nhà hàng là những món ăn được chế biến từ nguyên liệu được các tuyển trạch viên chọn lựa kĩ càng qua nhiều công đoạn với nhiều quy trình gắt gao. Với bàn tay tài hoa của đội ngũ đầu bếp giàu kinh nghiệm, khi đến Nhà Hàng chúng tôi, khách hàng sẽ được thưởng thức những món ăn đầy đủ sắc – hương – vị và mang tính đặc trưng chỉ có tại Website.</p>
-                                <div class="hover8">
-                                    <div class="hover_img">
-                                        <img src="images/introduce1.jpeg" class="img-responsive" id="img_center" />
-                                    </div>
-                                </div>
+                                <p>– Tư vấn cách thưởng thức cũng như chia sẻ các thông tin thú vị về rượu vang: Đội ngũ tư vấn tận tình giàu kinh nghiệm và website Vangchat.com.vn sẽ giúp bạn cảm thấy rượu vang thú vị và đặc sắc hơn bất cứ đồ uống nào khác.</p>
+                                <p>– Đảm bảo giá tốt nhất thị trường: Chúng tôi luôn cung cấp những sản phẩm rượu vang nhập khẩu đúng nhất với giá trị thực của chai rượu</p>
+                                <p>– Phục vụ 24/24, giao hàng miễn phí: Số hotline luôn luôn sẵn sàng phục vụ bạn, kể cả trong những dịp lễ tết, đội ngũ giao hàng luôn phục vụ khách hàng nhanh nhất,mọi nơi, mọi lúc</p>
+
+                                <p>– Hỗ trợ về thiết kế, in ấn các sản phẩm truyền thông: Khách hàng là nhà hàng, cửa hiệu hoặc shop cá nhân có nhu cầu thiết kế menu, biển bảng… được chúng tôi hỗ trợ hoàn toàn miễn phí.</p>
                                 <h3>Kết!</h3>
-                                <p>Nào như vậy thì bạn còn chần chừ gì nữa hãy đến với Nhà hàng để tìm cho mình sản phẩm mà mình mong muốn nhất và chỉ cần một cú click chuột đơn giản đơn giản sẽ được giao đến bạn sớm nhất.Hãy tận hưởng tinh hoa ẩm thực ngay thôi! </p>
+                                <p>Nào như vậy thì bạn còn chần chừ gì nữa hãy đến với shop để tìm cho mình sản phẩm mà mình mong muốn nhất và chỉ cần một cú click chuột đơn giản đơn giản sẽ được giao đến bạn sớm nhất.Hãy tận hưởng tinh hoa ẩm thực ngay thôi! </p>
 
                             </div>
 

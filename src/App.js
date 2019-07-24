@@ -14,6 +14,7 @@ import Menu from './components/menu/Menu';
 import News from './components/news/News';
 import ContactComponent from './components/Contact/ContactComponent';
 import ProductItem from './components/Product/ProductItem';
+import ProductId from './components/Product/ProductId';
 import LoginComponent from './components/login/LoginComponent';
 import Cart from './components/Product/Cart';
 @observer
@@ -42,6 +43,7 @@ class App extends Component {
                     <Route path="/productitems" component={ProductItem} />
                     <Route exact path="/login" component={LoginComponent} />
                     <Route exact path="/cart" component={Cart} />
+                    <Route exact path="/productId" component={ProductId} />
                     {/* both /roster and /roster/:number begin with /roster */}
                   </Switch>
                 </Paper>

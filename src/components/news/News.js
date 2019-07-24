@@ -1,14 +1,19 @@
 import React, { Component } from "react";
-import { observer } from "mobx-react";
+import { observer, inject } from "mobx-react";
 import { observable } from "mobx";
 import { Link } from "react-router-dom";
+@inject('store')
 @observer
 class News extends Component {
     @observable data = {
         email: "",
         password: ""
     };
-
+    goToProductId(id, name) {
+        this.props.store.id = id;
+        this.props.store.idname = name;
+        this.props.history.push('/productId');
+    }
     render() {
         return (
             <section id="category" class="content">
@@ -206,25 +211,19 @@ class News extends Component {
                                 <div class="sb_item">
                                     <h4>Danh mục</h4>
                                     <ul class="list-unstyled menu1">
-                                        <li><a href="danh-muc.html?id=1">Món khai vi</a></li>
+                                        <li onClick={() => { this.goToProductId("5d2295abe7179a4e432eceed", "Rượu Vang Pháp") }}>Rượu Vang Pháp</li>
                                     </ul>
                                     <ul class="list-unstyled menu1">
-                                        <li><a href="danh-muc.html?id=2">Thức ăn nhanh</a></li>
+                                        <li onClick={() => { this.goToProductId("5d2297f7e7179a4e432ecf7e", "Rượu Vang Ý") }}>Rượu Vang Ý</li>
                                     </ul>
                                     <ul class="list-unstyled menu1">
-                                        <li><a href="danh-muc.html?id=3">Mỳ</a></li>
+                                        <li onClick={() => { this.goToProductId("5d229809e7179a4e432ecf80", "Rượu Vang Chile") }}>Rượu Vang Chile</li>
                                     </ul>
                                     <ul class="list-unstyled menu1">
-                                        <li><a href="danh-muc.html?id=4">Đồ uống</a></li>
+                                        <li onClick={() => { this.goToProductId("5d22981be7179a4e432ecf81", "Rượu Vang Tây Ban Nha") }}>Rượu Vang Tây Ban Nha</li>
                                     </ul>
                                     <ul class="list-unstyled menu1">
-                                        <li><a href="danh-muc.html?id=5">BBQ</a></li>
-                                    </ul>
-                                    <ul class="list-unstyled menu1">
-                                        <li><a href="danh-muc.html?id=6">Hải sản</a></li>
-                                    </ul>
-                                    <ul class="list-unstyled menu1">
-                                        <li><a href="danh-muc.html?id=7">Khác</a></li>
+                                        <li onClick={() => { this.goToProductId("5d229827e7179a4e432ecf83", "Rượu Vang Mỹ") }}>Rượu Vang Mỹ</li>
                                     </ul>
                                 </div>
                             </div>

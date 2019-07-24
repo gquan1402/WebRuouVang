@@ -1,15 +1,11 @@
-import { action, observable, observe } from "mobx";
-import Promise from "bluebird";
+import { action, observable } from "mobx";
 
-import Config from "../config/env";
 
 let store = null;
 
 class Store {
-  @observable isServer = false;
-  @observable isRender = false;
-  @observable token = "";
-  @observable crtCampaign = "";
+  @observable Product = "";
+
 
   constructor(obj) {
     const self = this;
@@ -20,7 +16,7 @@ class Store {
   };
 
   @action
-  initApp = async () => {};
+  initApp = async () => { };
 }
 export default new Store();
 // export function initializeStore(obj) {

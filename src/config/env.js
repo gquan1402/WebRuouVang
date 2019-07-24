@@ -19,7 +19,7 @@ export default {
 
   api: {
     host: {
-      base: "http://localhost:9000",
+      base: "http://localhost:4000",
       upload: "http://localhost:4000"
     },
     path: {
@@ -27,11 +27,7 @@ export default {
         upFile: "/upload"
       },
       base: {
-        categories: "/categories",
-        products: "/products",
-        productsSearch: "/products/search",
-        customers: "/customers",
-        orders: "/orders"
+        products: "home",
       }
     }
   },

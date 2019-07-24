@@ -627,7 +627,7 @@
 			transform: scale(0);
 
 		}
-		.icon_lk a{
+		.icon_lk i{
 			display: block;
 			width: 55px;
 			height: 55px;
@@ -640,7 +640,7 @@
 			border-radius: 50%;
 			margin-top: 10px;
 		}
-		.icon_lk a:hover{
+		.icon_lk i:hover{
 			background: #bb1930;
 			color: white;
 		}

@@ -101,13 +101,13 @@ class ProductItem extends Component {
                                             <p class="p_price"><strong>Giá: </strong>
                                                 <em>
                                                     {this.item.product_cost} USD
-                                        </em>
+                                                </em>
                                             </p>
                                             <p><strong>Tình Trạng:</strong> Còn hàng</p>
                                             <p><strong>Dung Tích:</strong> {this.item.product_capacity}</p>
                                             <p><strong>Nồng Độ:</strong> {this.item.product_concentration} </p>
-                                            <p><strong>Nhiệt Độ Sử Dụng:</strong> {this.item.product_temperature} </p>
-                                            <div class="btn btn-button" onClick={() => this.props.store.onAddToCart(this.item, 1)}>MUA NGAY</div>
+                                            <p><strong>Nhiệt Độ Sử Dụng:</strong> {this.item.product_temperature} &#176; C</p>
+                                            <div class="btn btn-button btn-mua" onClick={() => this.props.store.onAddToCart(this.item, 1)}>MUA NGAY</div>
                                         </form>
                                     </div>
                                 </div>

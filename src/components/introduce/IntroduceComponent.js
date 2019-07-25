@@ -63,7 +63,7 @@ class IntroduceComponent extends Component {
                                      Chúng tôi luôn mong muốn khách hàng của mình được hài lòng nhất về sản phẩm mình đã mua</p>
                                 <div class="hover8">
                                     <div class="hover_img">
-                                        <img src="images/foody-mobile-asdasd-jpg-595-636310426618632554.jpg" class="img-responsive" id="img_center" />
+                                        <img src="../../../images/discount3.jpeg" class="img-responsive" id="img_center" />
                                     </div>
                                 </div>
                                 <p>– Tư vấn cách thưởng thức cũng như chia sẻ các thông tin thú vị về rượu vang: Đội ngũ tư vấn tận tình giàu kinh nghiệm và website Vangchat.com.vn sẽ giúp bạn cảm thấy rượu vang thú vị và đặc sắc hơn bất cứ đồ uống nào khác.</p>

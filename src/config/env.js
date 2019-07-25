@@ -27,7 +27,8 @@ export default {
         upFile: "/upload"
       },
       base: {
-        products: "home",
+        products: "product",
+        news: "new",
       }
     }
   },

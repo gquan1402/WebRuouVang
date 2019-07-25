@@ -11,3 +11,12 @@ export const GetProducts = () => {
             .catch(err => reject(err));
     });
 };
+export const GetNews = () => {
+    return new Promise((resolve, reject) => {
+        return callApi(Config.api.path.base.news, 'GET', {}, {})
+            .then(Data => {
+                return resolve(Data);
+            })
+            .catch(err => reject(err));
+    });
+};

@@ -63,9 +63,9 @@ class HomeComponent extends Component {
                   </div>
                   <div className="bn_des">
                     <h4 className="tt_des">DISCOUNT 20%</h4>
-                    <p className="d_des">Sale up to 60% on 50+ products include wedding flowers</p>
-                    <div className="xem_them">
-                      <a href="productsale.html">Xem thêm</a>
+                    <p className="d_des">Sale up to 60% on 50+ products </p>
+                    <div className="xem_them" onClick={() => { this.props.history.push('/products') }}>
+                      Xem thêm
                     </div>
                   </div>
                 </div>
@@ -75,8 +75,8 @@ class HomeComponent extends Component {
                   <div className="hover_img">
                     <a href="productsale.html"><img src="../../../images/discount2.jpeg" style={{ width: "366px", height: "405px" }}
                       className="img-responsive" /></a>
-                    <div className="xem_them xt_center">
-                      <a href="productsale.html">Xem thêm</a>
+                    <div className="xem_them xt_center" onClick={() => { this.props.history.push('/products') }}>
+                      Xem thêm
                     </div>
                   </div>
                 </div>
@@ -89,9 +89,9 @@ class HomeComponent extends Component {
                   </div>
                   <div className="bn_des">
                     <h4 className="tt_des">DISCOUNT 20%</h4>
-                    <p className="d_des">Sale up to 60% on 50+ products include wedding flowers</p>
-                    <div className="xem_them">
-                      <a href="productsale.html">Xem thêm</a>
+                    <p className="d_des">Sale up to 60% on 50+ products </p>
+                    <div className="xem_them" onClick={() => { this.props.history.push('/products') }}>
+                      Xem thêm
                     </div>
                   </div>
                 </div>

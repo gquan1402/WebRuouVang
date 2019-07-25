@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { observer } from "mobx-react";
+import { observer, inject } from "mobx-react";
 import { observable } from "mobx";
 import { Link } from "react-router-dom";
+@inject('store')
 @observer
 class LoginComponent extends Component {
   @observable data = {
@@ -31,7 +32,7 @@ class LoginComponent extends Component {
                   <div className="form-group text-center">
                     <button className="btn btn-button"
                       onClick={() => {
-                        console.log("lol");
+                        this.props.history.push("/Admin");
                       }}>
                       Đăng nhập</button>
                   </div>

@@ -25,7 +25,7 @@ class ContactComponent extends Component {
               <div className="title_page">
                 <ul className="list-inline">
                   <li>
-                    <a href="#">Trang chủ</a>
+                    Trang chủ
                   </li>
                   <li>
                     <i className="fa fa-angle-right" aria-hidden="true" />
@@ -37,7 +37,7 @@ class ContactComponent extends Component {
           </div>
 
           <div className="row tt-lienhe">
-            <div className="col-sm5- ">
+            <div className="col-sm-5">
               <h3>
                 <strong>Shop Rượu Vang HQT</strong>
               </h3>

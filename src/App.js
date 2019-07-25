@@ -17,6 +17,10 @@ import ProductItem from './components/Product/ProductItem';
 import ProductId from './components/Product/ProductId';
 import LoginComponent from './components/login/LoginComponent';
 import Cart from './components/Product/Cart';
+import Admin from './components/admin/Admin';
+import ProductAdmin from './components/admin/ProductAdmin';
+import EditProduct from './components/admin/EditProduct';
+import NewsAd from './components/admin/NewsAdmin';
 @observer
 class App extends Component {
   constructor(props) {
@@ -44,6 +48,10 @@ class App extends Component {
                     <Route exact path="/login" component={LoginComponent} />
                     <Route exact path="/cart" component={Cart} />
                     <Route exact path="/productId" component={ProductId} />
+                    <Route exact path="/Admin" component={Admin} />
+                    <Route exact path="/productAdmin" component={ProductAdmin} />
+                    <Route exact path="/editProduct" component={EditProduct} />
+                    <Route exact path="/newsAdmin" component={NewsAd} />
                     {/* both /roster and /roster/:number begin with /roster */}
                   </Switch>
                 </Paper>

@@ -32,6 +32,12 @@ class EditProduct extends Component {
                   <ul class="list-unstyled menu1">
                     <li onClick={() => { this.goToAdmin("Tin Tức", "/newsAdmin") }}>Tin Tức</li>
                   </ul>
+                  <ul class="list-unstyled menu1">
+                    <li onClick={() => { this.goToAdmin("Sales", "/SalesAdmin") }}>Sales</li>
+                  </ul>
+                  <ul class="list-unstyled menu1">
+                    <li onClick={() => { this.goToAdmin("Managers", "/managers") }}>Quản lý</li>
+                  </ul>
                 </div>
               </div>
             </div>

@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import { observable } from 'mobx';
-import { Link } from 'react-router-dom';
+import { GetNews } from "../../api/index";
 @inject('store')
 @observer
-class Admin extends Component {
-  @observable data = {
-    email: '',
-    password: ''
-  };
+class Managers extends Component {
+  @observable News = [];
+  constructor(props) {
+    super(props);
+    GetNews().then(e => { this.News = e.data; }).catch(console.log);
+  }
   goToAdmin = (title, to) => {
     this.props.store.title = title;
     this.props.history.push(to);
@@ -30,7 +31,7 @@ class Admin extends Component {
                 <div className="sb_item">
                   <h4>Danh mục</h4>
                   <ul class="list-unstyled menu1">
-                    <li>Hoá Đơn</li>
+                    <li onClick={() => { this.goToAdmin("Hoá Đơn", "/Admin") }}>Hoá Đơn</li>
                   </ul>
                   <ul class="list-unstyled menu1">
                     <li onClick={() => { this.goToAdmin("Sản Phẩm", "/productAdmin") }}>Sản Phẩm</li>
@@ -48,14 +49,7 @@ class Admin extends Component {
               </div>
             </div>
             <div className="col-sm-8">
-              <div className="row pb-5">
-                <div className="col-sm-8"></div>
-                <div className="col-sm-4">
-                  <input class="form-control" type="date" placeholder="Tìm kiếm theo ngày" />
-                  <button type="button" class="btn btn-outline-info">Search</button>
-                </div>
-              </div>
-              <div className="row pb-5">
+              <div className="row">
                 <div className="col-sm-12">
                   <table className="table">
                     <thead className="thead-dark">
@@ -64,6 +58,9 @@ class Admin extends Component {
                         <th>SDT</th>
                         <th>Địa Chỉ</th>
                         <th>Email</th>
+                        <th>Username</th>
+                        <tr></tr>
+                        <tr><button type="button" class="btn btn-primary" onClick={() => { this.goToAdmin("Thêm Quản Lý", "/addmanager") }}>Thêm</button></tr>
                       </tr>
                     </thead>
                     <tbody>
@@ -72,20 +69,8 @@ class Admin extends Component {
                         <td>0386451313</td>
                         <td>HÀ Nội Việt Nam</td>
                         <td>Gquan1402@gmail.com</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td><img style={{ height: "50px", width: "50px", marginLeft: "auto", marginRight: "auto" }}
-                          src="../../../images/discount1.jpeg " className="img-responsive text-center"
-                          alt="" /></td>
-                        <td>
-                          Vang Đà Lạt</td>
-                        <td className="text-danger">600<u>USD</u></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td><button type="button" class="btn btn-success">Hoàn Thành</button></td>
+                        <td>Quandz</td>
+                        <td><button type="button" class="btn btn-primary">Sửa</button></td>
                         <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
                           Xoá</button></td>
                       </tr>
@@ -109,43 +94,12 @@ class Admin extends Component {
                   </div>
                 </div>
               </div>
-              <div className="row">
-                <div className="col-sm-12">
-                  <table className="table">
-                    <thead className="thead-light">
-                      <tr>
-                        <th>Họ Tên</th>
-                        <th>SDT</th>
-                        <th>Địa Chỉ</th>
-                        <th>Email</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Phan Anh Quân</td>
-                        <td>0386451313</td>
-                        <td>HÀ Nội Việt Nam</td>
-                        <td>Gquan1402@gmail.com</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td><img style={{ height: "50px", width: "50px", marginLeft: "auto", marginRight: "auto" }}
-                          src="../../../images/discount1.jpeg " className="img-responsive text-center"
-                          alt="" /></td>
-                        <td>
-                          Vang Đà Lạt</td>
-                        <td className="text-danger">600<u>USD</u></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
             </div>
           </div>
         </div>
-      </div>
+      </div >
     );
   }
 }
 
-export default Admin;
+export default Managers;

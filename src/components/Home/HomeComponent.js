@@ -142,20 +142,6 @@ class HomeComponent extends Component {
             })}
           </div>
         </section>
-
-        <section id="banner2" className="banner_t">
-          <div className="container">
-            <div className="row">
-              <div className="col-sm-12">
-                <div className="hover8">
-                  <div className="hover_img">
-                    <a href="productDetail.html"><img src="../../../images/banner_n.jpg" className="img-responsive" /></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
       </div>
     );
   }

@@ -45,6 +45,12 @@ class ProductAdmin extends Component {
                   <ul class="list-unstyled menu1">
                     <li onClick={() => { this.goToAdmin("Tin Tức", "/newsAdmin") }}>Tin Tức</li>
                   </ul>
+                  <ul class="list-unstyled menu1">
+                    <li onClick={() => { this.goToAdmin("Sales", "/SalesAdmin") }}>Sales</li>
+                  </ul>
+                  <ul class="list-unstyled menu1">
+                    <li onClick={() => { this.goToAdmin("Managers", "/managers") }}>Quản lý</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -63,7 +69,7 @@ class ProductAdmin extends Component {
                           <td>Đơn Giá</td>
                           <td>Số Lượng</td>
                           <td></td>
-                          <td><button type="button" class="btn btn-primary">Thêm</button></td>
+                          <td><button type="button" class="btn btn-primary" onClick={() => { this.goToAdmin("Thêm Sản Phẩm", "/addproduct") }}>Thêm</button></td>
                         </tr>
                       </thead>
                       <tbody>
@@ -74,11 +80,28 @@ class ProductAdmin extends Component {
                             <td>{e.product_cost}</td>
                             <td>20</td>
                             <td><button type="button" class="btn btn-primary" onClick={() => { this.goToProduct(e) }}>Sửa</button></td>
-                            <td><button type="button" class="btn btn-danger">Xoá</button></td>
+                            <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                              Xoá</button></td>
                           </tr>)
                         })}
                       </tbody>
                     </table>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Bạn có muốn xoá không!</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
+                            <button type="button" class="btn btn-primary" onClick={() => { this.props.store.tempAlert("Đã xoá thành công!", 1000); }} data-dismiss="modal">Xoá</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </form>

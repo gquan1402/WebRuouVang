@@ -9,7 +9,7 @@ class Store {
   @observable id = "";
   @observable idname = "";
   @observable cart = [];
-  
+  @observable admin = "";
   @observable title = "Hoá Đơn";
   constructor(obj) {
     const self = this;

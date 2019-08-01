@@ -21,16 +21,20 @@ class NavbarComponent extends Component {
                     <li><i className="fa fa-phone" aria-hidden="true"></i> Hotline: 038.645.1313</li>
                   </ul>
                 </div>
-                <div className="col-sm-7">
-                  <ul className="list-inline ht_right">
-                    <li><NavLink to="/login" activeClassNameName="" style={{ textDecoration: "none", }}>
-                      <i className="fa fa-user" aria-hidden="true"></i> Đăng nhập
-                    </NavLink></li>
-                    <li><NavLink to="/cart" activeClassNameName="" style={{ textDecoration: "none", }}>
-                      <i className="fa fa-shopping-cart" aria-hidden="true"></i> Giỏ hàng
-                    </NavLink></li>
-                  </ul>
-                </div>
+
+                {localStorage.check != "true"
+                  ? <div className="col-sm-7">
+                    <ul className="list-inline ht_right">
+                      <li><NavLink to="/login" activeClassNameName="" style={{ textDecoration: "none", }}>
+                        <i className="fa fa-user" aria-hidden="true"></i> Đăng nhập
+                  </NavLink></li>
+                      <li><NavLink to="/cart" activeClassNameName="" style={{ textDecoration: "none", }}>
+                        <i className="fa fa-shopping-cart" aria-hidden="true"></i> Giỏ hàng
+                  </NavLink></li>
+                    </ul>
+                  </div>
+                  : <div className="col-sm-7"></div>
+                }
               </div>
             </div>
             <nav>
@@ -56,7 +60,7 @@ class NavbarComponent extends Component {
             </nav>
           </div>
         </div>
-      </div>
+      </div >
     );
   }
 }

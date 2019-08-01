@@ -19,7 +19,7 @@ export default {
 
   api: {
     host: {
-      base: "https://shopruouvang.herokuapp.com",
+      base: "http://localhost:4000",
       upload: "https://shopruouvang.herokuapp.com"
     },
     path: {
@@ -29,6 +29,9 @@ export default {
       base: {
         products: "product",
         news: "new",
+        bill: "bill",
+        sale: "sale",
+        admin: "admin",
       }
     }
   },

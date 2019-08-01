@@ -152,12 +152,12 @@ class ProductItem extends Component {
                                             <div className="pro_price">
                                                 <ul className="list-inline">
                                                     <li className="new_price">{e.product_cost} USD</li>
-                                                    <li className="old_price">{e.product_cost + e.product_cost * 0.25} USD</li>
+                                                    <li className="old_price">{e.product_cost + e.product_cost * (localStorage.sale / 100)} USD</li>
                                                 </ul>
                                             </div>
 
                                             <div className="sale">
-                                                -25%
+                                                -{localStorage.sale}%
                                     </div>
                                             <ul className="list-unstyled icon_lk">
                                                 <li><i className="fa fa-eye" aria-hidden="true"></i>

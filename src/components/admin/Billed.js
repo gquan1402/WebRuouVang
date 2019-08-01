@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import { observable } from 'mobx';
-import { Link } from 'react-router-dom';
 import { GetBills } from "../../api/index";
-import { deleteBills } from "../../api/index";
-import { doneBills } from "../../api/index";
 import { Redirect } from 'react-router';
 @inject('store')
 @observer
-class Admin extends Component {
+class Billed extends Component {
   @observable Bills = [];
   @observable id = "";
   constructor(props) {
@@ -19,14 +16,6 @@ class Admin extends Component {
   goToAdmin = (title, to) => {
     this.props.store.title = title;
     this.props.history.push(to);
-  }
-  ondone = async (e) => {
-    await doneBills(e).then(this.props.store.tempAlert("Thành công!", 1000)).catch(console.log);
-    await window.location.reload();
-  }
-  ondelete = async (e) => {
-    await deleteBills(e).then(this.props.store.tempAlert("Xoá thành công!", 1000)).catch(console.log);
-    await window.location.reload();
   }
   render() {
     return localStorage.check != "true" ? (
@@ -47,7 +36,7 @@ class Admin extends Component {
                   <div className="sb_item">
                     <h4>Danh mục</h4>
                     <ul class="list-unstyled menu1">
-                      <li>Hoá Đơn</li>
+                      <li onClick={() => { this.goToAdmin("Hoá Đơn", "/Admin") }}>Hoá Đơn</li>
                     </ul>
                     <ul class="list-unstyled menu1">
                       <li onClick={() => { this.goToAdmin("Sản Phẩm", "/productAdmin") }}>Sản Phẩm</li>
@@ -71,16 +60,17 @@ class Admin extends Component {
                 <div className="row pb-5">
                   <div className="col-sm-8"></div>
                   <div className="col-sm-4">
-                    <button type="button" class="btn btn-outline-info btn-lg" onClick={() => this.goToAdmin("Hoá Đơn Đã Bán", "/billed")}>Đã Xử lý</button>
+                    <input class="form-control" type="date" placeholder="Tìm kiếm theo ngày" />
+                    <button type="button" class="btn btn-outline-info">Search</button>
                   </div>
                 </div>
                 <div className="row pb-5">
                   <div className="col-sm-12">
                     {this.Bills.map((e, index) => {
-                      if (e.bill_status === false) {
+                      if (e.bill_status === true) {
                         return (
                           <table className="table" key={index}>
-                            <thead className="thead-dark" >
+                            <thead className="thead-light">
                               <tr>
                                 <th>Họ Tên</th>
                                 <th>SDT</th>
@@ -119,12 +109,8 @@ class Admin extends Component {
                                 <td>Tổng tiền</td>
                                 <td>{e.bill_cost} USD</td>
                                 <td></td>
-                                <td><button type="button" class="btn btn-success btn-lg"
-                                  onClick={() => this.ondone(e.id)}
-                                >Hoàn Thành</button></td>
-                                <td><button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#exampleModal"
-                                  onClick={() => this.id = e.id}>
-                                  Xoá</button></td>
+                                <td></td>
+                                <td></td>
                               </tr>
 
                             </tbody>
@@ -132,22 +118,6 @@ class Admin extends Component {
                         )
                       }
                     })}
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Bạn có muốn xoá không!</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
-                            <button type="button" class="btn btn-primary" onClick={() => this.ondelete(this.id)} data-dismiss="modal">Xoá</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -158,4 +128,4 @@ class Admin extends Component {
   }
 }
 
-export default Admin;
+export default Billed;

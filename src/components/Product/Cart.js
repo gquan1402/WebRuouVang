@@ -2,12 +2,15 @@ import React, { Component } from "react";
 import { observer, inject } from "mobx-react";
 import { observable } from "mobx";
 import { Link } from "react-router-dom";
+import {AddBill} from "../../api/index";
 @inject('store')
 @observer
 class Cart extends Component {
   @observable data = {
+    name:"",
     email: "",
-    password: ""
+    phone:"",
+    address:""
   };
   showTotal = (cart) => {
     var total = 0;
@@ -18,11 +21,30 @@ class Cart extends Component {
     }
     return total;
 }
-goToProductId(id, name) {
+  goToProductId(id, name) {
   this.props.store.id = id;
   this.props.store.idname = name;
   this.props.history.push('/productId');
 }
+  onBill = ()=>{
+    let cost = this.showTotal(this.props.store.cart);
+    let a = this.props.store.cart.map(e => {
+      let b = {
+        product_cost:e.item.product_cost,
+        product_image:e.item.product_image,
+        product_name:e.item.product_name,
+        product_quantity:e.quantity,
+      }
+      return b
+    })
+    if(this.data.name !="" && this.data.phone !="" && this.data.email !=""  && this.data.address !="" ){
+      AddBill("29/07/2019",a,cost,"false",this.data.name,this.data.phone,this.data.email,this.data.address).then(this.ondone()).catch(console.log);
+    }
+  }
+  ondone = async ()=>{
+    this.props.store.cart = [];
+    await this.props.store.tempAlert("Đặt hàng thành công!", 1000);
+  }
   render() {
     return (
       <section id="cart">
@@ -117,21 +139,29 @@ goToProductId(id, name) {
                   <div className="form-group">
                     <div className="col-sm-12">
                       <input type="text" name="name" className="form-control"
-                        placeholder="Họ và tên (Bắt buộc)" required="" />
+                        placeholder="Họ và tên (Bắt buộc)" onChange={e => {
+                          this.data.name = e.target.value;
+                        }} />
                     </div>
                     <div className="col-sm-12" style={{ paddingTop: "7px" }}>
                       <input type="text" name="phone" min="0" className="form-control"
-                        required="" placeholder="Điện thoại (Bắt buộc)" />
+                        required="" placeholder="Điện thoại (Bắt buộc)" onChange={e => {
+                          this.data.phone = e.target.value;
+                        }} />
                     </div>
                   </div>
                   <div className="form-group">
                     <div className="col-sm-12">
                       <input type="email" name="email" className="form-control"
-                        required="" placeholder="Email (Bắt buộc)" />
+                        required="" placeholder="Email (Bắt buộc)" onChange={e => {
+                          this.data.email = e.target.value;
+                        }} />
                     </div>
                     <div className="col-sm-12" style={{ paddingTop: "7px" }}>
                       <input type="text" name="address" className="form-control"
-                        placeholder="Địa chỉ" />
+                        placeholder="Địa chỉ" onChange={e => {
+                          this.data.address = e.target.value;
+                        }} />
                     </div>
                   </div>
                   <div className="form-group">
@@ -141,7 +171,7 @@ goToProductId(id, name) {
                     </div>
                   </div>
                   <div className="text-center">
-                    <div type="submit" className="btn btn-button" onClick={()=>{this.props.store.onBill()}}>Đặt hàng</div>
+                    <div type="submit" className="btn btn-button" onClick={()=>{this.onBill()}}>Đặt hàng</div>
                   </div>
                 </form>
               </div>

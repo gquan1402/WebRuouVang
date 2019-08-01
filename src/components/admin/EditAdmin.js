@@ -1,36 +1,23 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import { observable } from 'mobx';
-import { addAdmin } from "../../api/index";
+import { editAdmin } from "../../api/index";
 import { Redirect } from 'react-router';
 @inject('store')
 @observer
-class AddManager extends Component {
-  @observable item =
-    {
-      admin_name: "",
-      admin_phone: "",
-      admin_email: "",
-      admin_address: "",
-      admin_password: "",
-      admin_username: ""
-    };
+class EditAdmin extends Component {
+  @observable item = "";
   constructor(props) {
     super(props);
+    this.item = this.props.store.admin;
   }
   goToAdmin = (title, to) => {
     this.props.store.title = title;
     this.props.history.push(to);
   }
   addProduct = async () => {
-    if (this.item.admin_address != "" && this.item.admin_name != "" && this.item.admin_phone != "" && this.item.admin_email != "" && this.item.admin_password != "" && this.item.admin_username != "") {
-      await addAdmin(this.item.admin_name, this.item.admin_phone, this.item.admin_email, this.item.admin_address, this.item.admin_password, this.item.admin_username).then(this.props.store.tempAlert("Thêm thành công!", 1000)).catch(console.log);
-      await this.goToAdmin("Managers", "/managers");
-    }
-    else {
-      this.props.store.tempAlert("Bạn cần nhập đủ thông tin!", 1000);
-      console.log(this.item);
-    }
+    await editAdmin(this.item.admin_name, this.item.admin_phone, this.item.admin_email, this.item.admin_address, this.item.admin_password, this.item.admin_username, this.item.id).then(this.props.store.tempAlert("Sửa thành công!", 1000)).catch(console.log);
+    await this.goToAdmin("Managers", "/managers");
   }
   render() {
     return localStorage.check != "true" ? (
@@ -80,45 +67,45 @@ class AddManager extends Component {
                     <div className="col-sm-12">
                       <div className="item-contact">
                         <label for="mail">Tên Quản Lý</label>
-                        <input type="text" className="form-control" id="mail" required onChange={e => {
+                        <input type="mail" className="form-control" id="mail" required onChange={e => {
                           this.item.admin_name = e.target.value;
-                        }} />
+                        }} value={this.item.admin_name} />
                       </div>
                       <div className="item-contact">
                         <label for="sdt">Số Điện Thoại</label>
                         <input type="number" className="form-control" id="sdt" onChange={e => {
                           this.item.admin_phone = e.target.value;
-                        }} />
+                        }} value={this.item.admin_phone} />
                       </div>
                       <div className="item-contact">
                         <label for="dia-chi">Địa Chỉ</label>
                         <input type="text" className="form-control" id="dia-chi" onChange={e => {
                           this.item.admin_address = e.target.value;
-                        }} />
+                        }} value={this.item.admin_address} />
                       </div>
                       <div className="item-contact">
                         <label for="dia-chi">Email</label>
-                        <input type="email" className="form-control" id="dia-chi" onChange={e => {
+                        <input type="text" className="form-control" id="dia-chi" onChange={e => {
                           this.item.admin_email = e.target.value;
-                        }} />
+                        }} value={this.item.admin_email} />
                       </div>
                       <div className="item-contact">
                         <label for="dia-chi">Username</label>
                         <input type="text" className="form-control" id="dia-chi" onChange={e => {
                           this.item.admin_username = e.target.value;
-                        }} />
+                        }} value={this.item.admin_username} />
                       </div>
                       <div className="item-contact">
                         <label for="dia-chi">Passwords</label>
-                        <input type="password" className="form-control" id="dia-chi" onChange={e => {
+                        <input type="text" className="form-control" id="dia-chi" onChange={e => {
                           this.item.admin_password = e.target.value;
-                        }} />
+                        }} value={this.item.admin_password} />
                       </div>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-sm-8"></div>
-                    <div className="col-sm-4"><button type="button" class="btn btn-outline-success" onClick={() => { this.addProduct() }}>Thêm quản lý</button></div>
+                    <div className="col-sm-4"><button type="button" class="btn btn-outline-success btn-lg" onClick={() => { this.addProduct() }}>Sửa quản lý</button></div>
                   </div>
                 </form>
               </div>
@@ -126,7 +113,8 @@ class AddManager extends Component {
           </div>
         </div >
       );
+
   }
 }
 
-export default AddManager;
+export default EditAdmin;

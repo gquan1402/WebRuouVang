@@ -86,6 +86,7 @@ class Admin extends Component {
                                 <th>SDT</th>
                                 <th>Địa Chỉ</th>
                                 <th>Email</th>
+                                <th>{e.bill_datetime}</th>
                               </tr>
                             </thead>
                             <tbody>

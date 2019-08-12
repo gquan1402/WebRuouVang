@@ -10,6 +10,7 @@ import { Redirect } from 'react-router';
 class ProductAdmin extends Component {
   @observable Products = [];
   @observable id = "";
+  @observable msp = "";
   constructor(props) {
     super(props);
     GetProducts().then(e => { this.Products = e.data; }).catch(console.log);
@@ -26,6 +27,15 @@ class ProductAdmin extends Component {
   ondelete = async (e) => {
     await deleteProduct(e).then(this.props.store.tempAlert("Xoá thành công!", 1000)).catch(console.log);
     await window.location.reload();
+  }
+  check = async () => {
+    let FindProduct = [];
+    for (let i = 0; i < this.Products.length; i++) {
+      if (this.Products[i]._id === this.msp) {
+        FindProduct.push(this.Products[i]);
+      }
+    }
+    this.Products = FindProduct;
   }
   render() {
     return localStorage.check != "true" ? (
@@ -66,7 +76,17 @@ class ProductAdmin extends Component {
                   </div>
                 </div>
               </div>
+
               <div className="col-sm-8">
+                <div className="row pb-5">
+                  <div className="col-sm- 8"></div>
+                  <div className="col-sm-4">
+                    <input className="form-control" type="text" placeholder="Tìm kiếm theo mã sản phẩm" onChange={e => {
+                      this.msp = e.target.value;
+                    }} />
+                    <button type="button" className="btn btn-outline-info" onClick={() => this.check()}>Search</button>
+                  </div>
+                </div>
                 <form
                   className="form-group form-contact"
                   role="form"

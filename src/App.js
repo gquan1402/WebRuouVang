@@ -28,6 +28,7 @@ import AddNew from './components/admin/AddNew';
 import AddManager from './components/admin/AddManager';
 import Billed from './components/admin/Billed';
 import EditAdmin from './components/admin/EditAdmin';
+import ViewNews from './components/news/ViewNew';
 @observer
 class App extends Component {
   constructor(props) {
@@ -66,6 +67,7 @@ class App extends Component {
                     <Route exact path="/addmanager" component={AddManager} />
                     <Route exact path="/billed" component={Billed} />
                     <Route exact path="/editManager" component={EditAdmin} />
+                    <Route exact path="/viewNew" component={ViewNews} />
                     {/* both /roster and /roster/:number begin with /roster */}
                   </Switch>
                 </Paper>

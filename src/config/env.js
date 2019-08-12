@@ -19,8 +19,8 @@ export default {
 
   api: {
     host: {
-      base: "http://localhost:4000",
-      upload: "https://shopruouvang.herokuapp.com"
+      base: "https://shopruouvang.herokuapp.com",
+      upload: "http://localhost:4000"
     },
     path: {
       upload: {

@@ -22,19 +22,18 @@ class NavbarComponent extends Component {
                   </ul>
                 </div>
 
-                {localStorage.check != "true"
-                  ? <div className="col-sm-7">
-                    <ul className="list-inline ht_right">
-                      <li><NavLink to="/login" activeClassNameName="" style={{ textDecoration: "none", }}>
-                        <i className="fa fa-user" aria-hidden="true"></i> Đăng nhập
+                <div className="col-sm-7">
+                  <ul className="list-inline ht_right">
+
+                    <li><NavLink to="/login" activeClassNameName="" style={{ textDecoration: "none", }}>
+                      <i className="fa fa-user" aria-hidden="true"></i> Đăng nhập
+                </NavLink></li>
+                    <li><NavLink to="/cart" activeClassNameName="" style={{ textDecoration: "none", }}>
+                      <i className="fa fa-shopping-cart" aria-hidden="true"></i> Giỏ hàng
                   </NavLink></li>
-                      <li><NavLink to="/cart" activeClassNameName="" style={{ textDecoration: "none", }}>
-                        <i className="fa fa-shopping-cart" aria-hidden="true"></i> Giỏ hàng
-                  </NavLink></li>
-                    </ul>
-                  </div>
-                  : <div className="col-sm-7"></div>
-                }
+                  </ul>
+                </div>
+
               </div>
             </div>
             <nav>

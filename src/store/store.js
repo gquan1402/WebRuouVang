@@ -11,6 +11,7 @@ class Store {
   @observable cart = [];
   @observable admin = "";
   @observable title = "Hoá Đơn";
+  @observable New = "";
   constructor(obj) {
     const self = this;
   }

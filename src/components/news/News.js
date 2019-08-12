@@ -16,6 +16,11 @@ class News extends Component {
         this.props.store.idname = name;
         this.props.history.push('/productId');
     }
+    view(e) {
+        this.props.store.New = e;
+        console.log(e);
+        this.props.history.push('/viewNew');
+    }
     render() {
         return (
             <section id="category" class="content">
@@ -53,7 +58,7 @@ class News extends Component {
 
                             {this.News.map((e, index) => {
                                 return (
-                                    <div class="row m_bottom pt-2">
+                                    <div class="row m_bottom pt-2" key={index}>
                                         <div class="col-sm-5">
                                             <div class="new_img hover8">
                                                 <div class="img hover_img">
@@ -67,7 +72,7 @@ class News extends Component {
                                         </div>
                                         <div class="col-sm-7">
                                             <div class="new_text">
-                                                <div class="n_des">
+                                                <div class="n_des" onClick={() => this.view(e)}>
                                                     {e.news_title}
                                                 </div>
                                                 <div class="des">

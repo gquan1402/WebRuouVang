@@ -37,8 +37,13 @@ class Cart extends Component {
       }
       return b
     })
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+    var yyyy = today.getFullYear();
+    today = yyyy + '-' + mm + '-' + dd;
     if(this.data.name !="" && this.data.phone !="" && this.data.email !=""  && this.data.address !="" ){
-      AddBill("29/07/2019",a,cost,"false",this.data.name,this.data.phone,this.data.email,this.data.address).then(this.ondone()).catch(console.log);
+      AddBill(today,a,cost,"false",this.data.name,this.data.phone,this.data.email,this.data.address).then(this.ondone()).catch(console.log);
     }
   }
   ondone = async ()=>{

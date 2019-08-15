@@ -1,37 +1,37 @@
 // const myUrl = 'https://hrcvn.tk';
-const myUrl = "http://localhost:3000";
+const myUrl = 'http://localhost:3000';
 export default {
   releaseVersion: false,
   secret: {
-    username: "",
-    password: ""
+    username: '',
+    password: ''
   },
   app: {
-    android: "",
-    ios: "",
-    fb: ""
+    android: '',
+    ios: '',
+    fb: ''
   },
   role: {
-    user: "",
-    employ: "",
-    admin: ""
+    user: '',
+    employ: '',
+    admin: ''
   },
 
   api: {
     host: {
-      base: "http://localhost:4000",
-      upload: "https://shopruouvang.herokuapp.com"
+      base: 'https://shopruouvang.herokuapp.com',
+      upload: 'https://shopruouvang.herokuapp.com'
     },
     path: {
       upload: {
-        upFile: "/upload"
+        upFile: '/upload'
       },
       base: {
-        products: "product",
-        news: "new",
-        bill: "bill",
-        sale: "sale",
-        admin: "admin",
+        products: 'product',
+        news: 'new',
+        bill: 'bill',
+        sale: 'sale',
+        admin: 'admin'
       }
     }
   },
@@ -43,7 +43,7 @@ export default {
     }
   },
   asyncStorage: {
-    loginOK: "loginOk",
-    user: "user"
+    loginOK: 'loginOk',
+    user: 'user'
   }
 };
